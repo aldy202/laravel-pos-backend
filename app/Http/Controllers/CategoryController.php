@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::paginate(10);
+        $categories = DB::table('categories')
+        ->when($request->input('name'), function ($query, $name) {
+            $query->where('name', 'like', '%' . $name . '%');
+        })
+        ->paginate(10);
         return view('pages.categories.index', compact('categories'));
     }
 

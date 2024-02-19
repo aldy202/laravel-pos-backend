@@ -9,8 +9,13 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     //index
-    public function index()
+    public function index(Request $request)
     {
+        // $products = DB::table('products')
+        //     ->when($request->input('name'), function ($query, $name) {
+        //         $query->where('name', 'like', '%' . $name . '%');
+        //     })
+        //     ->paginate(10);
         $products = Product::paginate(10);
         return view('pages.products.index', compact('products'));
     }
