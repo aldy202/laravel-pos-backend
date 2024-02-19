@@ -15,11 +15,6 @@
                 <div class="section-header-button">
                     <a href="{{ route('categories.create') }}" class="btn btn-primary">Add category</a>
                 </div>
-                <div class="section-header-breadcrumb">
-                    <div class="breadcrumb-item active"><a href="#">Dashboard</a></div>
-                    <div class="breadcrumb-item"><a href="#">Product</a></div>
-                    <div class="breadcrumb-item">All Product</div>
-                </div>
             </div>
             <div class="section-body">
                 <div class="row">
@@ -32,9 +27,6 @@
                 <div class="row mt-4">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h4>All Category</h4>
-                            </div>
                             <div class="card-body">
 
                                 <div class="float-right">
@@ -51,10 +43,10 @@
                                 <div class="clearfix mb-3"></div>
 
                                 <div class="table-responsive">
-                                    <table class="table-striped table">
+                                    <table class="table table-striped table-hover">
                                         <tr>
 
-                                            <th>Name</th>
+                                            <th class="d-flex justify-content-center">Name</th>
 
                                             <th>Create_at</th>
                                             <th>Action</th>
@@ -67,7 +59,7 @@
 
                                                 <td>{{ $category->created_at }}</td>
                                                 <td>
-                                                    <div class="d-flex justify-content-center">
+                                                    <div class="d-flex justify-content-left">
                                                         <a href='{{ route('categories.edit', $category->id) }}'
                                                             class="btn btn-sm btn-info btn-icon">
                                                             <i class="fas fa-edit"></i>
