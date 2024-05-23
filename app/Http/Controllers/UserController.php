@@ -20,6 +20,7 @@ class UserController extends Controller
                 ->orWhere('email', 'like', '%' . $name . '%');
             })
             ->paginate(10);
+
         return view('pages.users.index', compact('users'));
     }
 
